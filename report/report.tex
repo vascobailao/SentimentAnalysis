@@ -23,7 +23,7 @@
 	
 	The data set provided (https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/) is composed by two different files, the train set ("$train\_E6oV3lV.csv$") and test set ("$test\_tweets\_anuFYb8.csv$"). The first file is composed by 31621 observations, with 3 columns ("id", "label" and "tweet"), with an uneven label (or class) distribution, as can be seen in Figure 1:
 	
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\label{Figure 1}
 		\caption{Class distribution}
 		\includegraphics[width=9cm]{classes.png}
@@ -55,8 +55,8 @@
 	
 	So following the same line of thought of the last subsection, I thought that exclamation marks could be a discriminative feature. The hypothesis was that hate-speech tweets had more exclamation marks than non-hate speech tweets. The boxplot for each class in terms of the number of number of exclamation points. 
 	
-	\begin{figure}[!h]
-		\label{Figure 1}
+	\begin{figure}[h]
+		\label{Figure 2}
 		\caption{Number of Exclamation Marks}
 		\includegraphics[width=9cm]{postcleanlength.png}
 		\centering
@@ -68,8 +68,8 @@
 	
 	Skipping some steps, lets now check the post-cleaning length. Again, there is no statistically  significant differences between one class and the other. 
 	
-	\begin{figure}[h!]
-		\label{Figure 1}
+	\begin{figure}[h]
+		\label{Figure 3}
 		\caption{Post-cleaning length}
 		\includegraphics[width=9cm]{post.png}
 		\centering
@@ -77,7 +77,23 @@
 
 	\section{Data Cleaning}
 	
-	In this section, I will refer the cleaning steps that I took
+	In this section, I will refer the cleaning steps that I took.
+	
+	Given that the dataset already had user mentions anonymised, these mentions, in my opinion, did not had any predictive power. Given this, I wrote a function, called \texttt{remove\_pattern(text, pattern)} that can remove any pattern of a \textit{regex} expression. I applied this function to the data set column \texttt{tweet}, creating a new column, named \texttt{new\_tweet}.
+	
+	The second step of the cleaning part was to lowercase each word of the column. This operation was applied to the \texttt{new\_tweet} column. 
+	
+	The cleaning part of this project was also accomplished using another function \texttt{clean\_tweet(text)}, that perform the following steps:
+	\begin{itemize}
+		\item Remove HTML characters.
+		\item Encoding normalization.
+		\item Check for common abbreviation in english and transform them to the long version (like "aren't" to "are not").
+		\item Remove non-character symbols.
+		\item Tokenize each tweet using the NLTK Tokenizer.
+	\end{itemize}
+	
+	Then checked for missing values in all columns, that produced no results. 
+	
 	\section{Exploratory Data Analysis}
 	\section{Algorithms \& Feature Engineering}
 	\subsection{Logistic Regression}
