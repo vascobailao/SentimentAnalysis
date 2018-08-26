@@ -24,7 +24,7 @@
 	
 	The data set provided (https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/) is composed by two different files, the train set ("$train\_E6oV3lV.csv$") and test set ("$test\_tweets\_anuFYb8.csv$"). The first file is composed by 31621 observations, with 3 columns ("id", "label" and "tweet"), with an uneven label (or class) distribution, as can be seen in Figure 1:
 	
-	\begin{figure}[h!]
+	\begin{figure}[h]
 		\label{Figure 1}
 		\caption{Class distribution}
 		\includegraphics[width=9cm]{classes.png}
@@ -67,7 +67,7 @@
 		
 	\subsection{Post-cleaning length}
 	
-	Skipping some steps, lets now check the post-cleaning length. Again, there is no statistically  significant differences between one class and the other. 
+	Skipping some steps, lets now check the post-cleaning length. Again, there is no statistically  significant differences between one class and the other. This can be seen in Figure 4. 
 	
 	\begin{figure}[h]
 		\label{Figure 3}
@@ -242,7 +242,7 @@ So finally, we can see that there is a relationship between the positive and neg
 	
 	% Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \caption{Algorithm Comparison}
 \label{my-label}
 \resizebox{\textwidth}{!}{%
@@ -284,5 +284,34 @@ Logistic Regression & DMC+DBOW & 91.53\% & 35.84\% \\ \hline
 \end{table}
 
 	\subsection{Deep Learning}
+
+	The results when using various deep learning models can be seen in Table 3. 
+	
+	% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\caption{Deep Learning results}
+\label{my-label}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllllllllll}
+\hline
+Type & \begin{tabular}[c]{@{}l@{}}Number of\\ Layers\end{tabular} & \begin{tabular}[c]{@{}l@{}}Size of \\ Layers\end{tabular} & Epochs & Batch Size & Batch Shuffle & \begin{tabular}[c]{@{}l@{}}Batch\\ Normalization\end{tabular} & Optimizer & Dropout & Features & \begin{tabular}[c]{@{}l@{}}Accuracy \\ (Validation Set)\end{tabular} & \begin{tabular}[c]{@{}l@{}}F1-Score\\ (Validation Set)\end{tabular} \\ \hline
+MLP & 1 & 64 & 10 & 256 & No & No & ADAM & No & TF-IDF & 95.39\% & 67.05\% \\ \hline
+MLP & 2 & 128/64 & 10 & 256 & No & No & ADAM & No & TF-IDF & 95.71\% & 65.91\% \\ \hline
+MLP & 1 & 64 & 10 & 32 & Yes & No & ADAM & No & TF-IDF & 95.10\% & 4.86\% \\ \hline
+MLP & 1 & 64 & 10 & 32 & No & Yes & ADAM & No & TF-IDF & 95.12\% & 4.86\% \\ \hline
+MLP & 1 & 64 & 10 & 32 & Yes & Yes & ADAM & Yes / 0.2 & TF-IDF & 95.18\% & 4.61\% \\ \hline
+MLP & 1 & 64 & 10 & 32 & Yes & Yes & \begin{tabular}[c]{@{}l@{}}Custom ADAM\\ Lr=0.005\end{tabular} & No & TF-IDF & 94.92\% & 4.77\% \\ \hline
+MLP & 1 & 64 & 10 & 32 & Yes & Yes & \begin{tabular}[c]{@{}l@{}}Custom ADAM\\ Lr=0.01\end{tabular} & No & TF-IDF & 95.01\% & 4.54\% \\ \hline
+MLP & 2 & 128/64 & 40 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Doc2Vec\\ (DMC+DBOW)\end{tabular} & 92.55\% & 41.47\% \\ \hline
+MLP & 2 & 128/64 & 40 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Doc2Vec\\ (DMC+DBOW)\end{tabular} & 93.35\% & 65.64\% \\ \hline
+MLP + Embeddings & 2 & 256 & 5 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Word2Vec\\ (DBOW)\end{tabular} & 95.25\% & 65.14\% \\ \hline
+MLP + Embeddings & 3 & 256/256 & 10 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Word2Vec\\ (DBOW)\end{tabular} & 96.02\% & 69.95\% \\ \hline
+CNN + Embeddings & 8 & N/A & 10 & 512 & No & No & ADAM & Yes / 0.2 & \begin{tabular}[c]{@{}l@{}}Word2Vec\\ (DBOW)\end{tabular} & 96.77\% & 74.88\% \\ \hline
+\end{tabular}%
+}
+\end{table}
 	\section{Discussion and Future Work}
 \end{document}
