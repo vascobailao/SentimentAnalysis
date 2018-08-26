@@ -192,24 +192,30 @@ NOTE 2: The tokens that are more meaningful are the ones in the 1st and 4th quar
 \paragraph{Other Metrics}
 
 
-Using the metrics for ranking tokens from this (https://www.youtube.com/watch?v=H7X9CA2pWKo) PyData Conference, let’s explore what we can get out of frequency of each token. Intuitively, if a word appears more often in one class compared to another, this can be a good measure of how much the word is meaningful to characterise the class.
+Using the metrics for ranking tokens from this (\url{https://www.youtube.com/watch?v=H7X9CA2pWKo}) PyData Conference, let’s explore what we can get out of frequency of each token. Intuitively, if a word appears more often in one class compared to another, this can be a good measure of how much the word is meaningful to characterise the class.
 
-I call this the pos_rate, that basically is a measure of how much a token appears in the positive class related to the positive and negative classes.
+I call this the \texttt{pos\_rate}, that basically is a measure of how much a token appears in the positive class related to the positive and negative classes.
 
 So the metric above is not really useful, because, this rate can be really high if a word appears few times in the positive class and none on the negative class.
 
-Given this, I used other metric, pos_freq_pct, that basically measures the frequency in class.
+Given this, I used other metric, \texttt{pos\_freq\_pct}, that basically measures the frequency in class.
 
-But since pos_freq_pct is just the frequency scaled over the total sum of the frequency, the rank of pos_freq_pct is exactly same as just the positive frequency.
+But since \texttt{pos\_freq\_pct} is just the frequency scaled over the total sum of the frequency, the rank of \texttt{pos\_freq\_pct} is exactly same as just the positive frequency.
 
-So, and borrowing again from the metrics used in the PyData Conference in the ScatterText package, I wanted to combine the two metric above. However, the range of the two metric is different. Although they both range in the interval [0, 1] the frequency in-class ranges from [~0.0072, 0] and the pos_rate metric from [0,1]. If I computed the average between the two, one of the metric would have much more weight in the final result than the other.
+So, and borrowing again from the metrics used in the PyData Conference in the ScatterText package, I wanted to combine the two metric above. However, the range of the two metric is different. Although they both range in the interval [0, 1] the frequency in-class ranges from [\~0.0072, 0] and the \texttt{pos\_rate} metric from [0,1]. If I computed the average between the two, one of the metric would have much more weight in the final result than the other.
 
 “Since the harmonic mean of a list of numbers tends strongly toward the least elements of the list, it tends (compared to the arithmetic mean) to mitigate the impact of large outliers and aggravate the impact of small ones.”
 
-The harmonic mean rank seems like the same as pos_freq_pct. By calculating the harmonic mean, the impact of small value (in this case, pos_freq_pct) is too aggravated and ended up dominating the mean value. This is again exactly same as just the frequency value rank and doesn’t provide a much meaningful result.
+The harmonic mean rank seems like the same as \texttt{pos\_freq\_pct}. By calculating the harmonic mean, the impact of small value (in this case, \texttt{pos\_freq\_pct}) is too aggravated and ended up dominating the mean value. This is again exactly same as just the frequency value rank and doesn’t provide a much meaningful result.
 
 What we can try next is to get the CDF (Cumulative Distribution Function) (inspiration taken from here: https://svn.spraakdata.gu.se/repos/richard/pub/statnlp2016_web/l3.pdf) value of both pos_rate and pos_freq_pct. CDF can be explained as “distribution function of X, evaluated at x, is the probability that X will take a value less than or equal to x”. By calculating CDF value, we can see where the value of either pos_rate or pos_freq_pct lies in the distribution in terms of cumulative manner.
 
+	\begin{figure}[h]
+		\label{Figure 12}
+		\caption{Token frequency per class}
+		\includegraphics[scale=0.55]{norcdf.png}
+		\centering
+	\end{figure}
 
 
 So finally, we can see that there is a relationship between the positive and negative samples. Each data point represents a token, and tokens in the first quarter are the most significant in terms of "positivity", and the data points in the fourth quarter are the most significant in terms of "negativity".
