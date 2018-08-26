@@ -208,7 +208,7 @@ So, and borrowing again from the metrics used in the PyData Conference in the Sc
 
 The harmonic mean rank seems like the same as \texttt{pos\_freq\_pct}. By calculating the harmonic mean, the impact of small value (in this case, \texttt{pos\_freq\_pct}) is too aggravated and ended up dominating the mean value. This is again exactly same as just the frequency value rank and doesn’t provide a much meaningful result.
 
-What we can try next is to get the CDF (Cumulative Distribution Function) (inspiration taken from here: https://svn.spraakdata.gu.se/repos/richard/pub/statnlp2016_web/l3.pdf) value of both pos_rate and pos_freq_pct. CDF can be explained as “distribution function of X, evaluated at x, is the probability that X will take a value less than or equal to x”. By calculating CDF value, we can see where the value of either pos_rate or pos_freq_pct lies in the distribution in terms of cumulative manner.
+What we can try next is to get the CDF (Cumulative Distribution Function) (inspiration taken from here: https://svn.spraakdata.gu.se/repos/richard/pub/statnlp2016_web/l3.pdf) value of both pos_rate and \texttt{pos\_freq\_pct}. CDF can be explained as “distribution function of X, evaluated at x, is the probability that X will take a value less than or equal to x”. By calculating CDF value, we can see where the value of either \texttt{pos\_rate} or \texttt{pos\_freq\_pct} lies in the distribution in terms of cumulative manner.
 
 	\begin{figure}[h]
 		\label{Figure 12}
