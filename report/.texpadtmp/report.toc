@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Problem Statement}{2}{section.2}
+\contentsline {section}{\numberline {3}Data Set}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Train Set}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Test Set}{2}{subsection.3.2}
+\contentsline {section}{\numberline {4}Initial Feature Engineering}{2}{section.4}
+\contentsline {subsection}{\numberline {4.1}Pre-clean Tweet length}{2}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Number of exclamation marks}{4}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Post-cleaning length}{4}{subsection.4.3}
+\contentsline {section}{\numberline {5}Data Cleaning}{4}{section.5}
+\contentsline {section}{\numberline {6}Exploratory Data Analysis}{5}{section.6}
+\contentsline {subsection}{\numberline {6.1}Word Cloud}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Zipf's Law}{5}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Token Frequency}{7}{subsection.6.3}
+\contentsline {paragraph}{Token count per class}{7}{section*.2}
+\contentsline {paragraph}{Most common tokens per class}{7}{section*.3}
+\contentsline {paragraph}{Other Metrics}{8}{section*.4}
+\contentsline {section}{\numberline {7}Algorithms \& Feature Engineering}{9}{section.7}
+\contentsline {subsection}{\numberline {7.1}Logistic Regression}{9}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Algorithm Comparison}{9}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Deep Learning}{9}{subsection.7.3}
+\contentsline {section}{\numberline {8}Discussion and Future Work}{9}{section.8}
