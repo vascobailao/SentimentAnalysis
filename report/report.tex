@@ -121,7 +121,7 @@
 	Zipf’s Law states that a small number of words are used all the time, while the vast majority are used very rarely. There is nothing surprising about this, we know that we use some of the words very frequently, such as “the”, “of”, etc, and we rarely use the words like “aardvark” (aardvark is an animal species native to Africa). However, what’s interesting is that “given some corpus of natural language utterances, the frequency of any word is inversely proportional to its rank in the frequency table. Thus the most frequent word will occur approximately twice as often as the second most frequent word, three times as often as the third most frequent word, etc.”
 	
 	\begin{figure}[h]
-		\label{Figure 6}
+		\label{Figure 7}
 		\caption{Approximate Zipf Law}
 		\includegraphics[width=9cm]{zipf.png}
 		\centering
@@ -133,11 +133,32 @@
 	Another way to look at this data is to plot the features at a log-scale. This can be seen in Figure 8.
 	
 	\begin{figure}[h]
-		\label{Figure 6}
+		\label{Figure 8}
 		\caption{Log-scaled approximate Zipf Law}
 		\includegraphics[width=9cm]{logzipf.png}
 		\centering
 	\end{figure}
+	
+	\subsection{Token Frequency}
+	
+	Now let's go deeper into token frequency and test several metrics in order to see if we can extract meaningful information from this set of metrics.
+	
+	\paragraph{Token count per class}
+	
+	After removing the stop words, the first question was "how many times a certain token appears in one class?". 
+	But lets look at the frequency values of the minority class. Everything is pretty normal, right? (In terms of the ratio between the positives and negatives). What about words like "like", "just"? (Figure 9). 
+	
+	\begin{figure}[h]
+		\label{Figure 9}
+		\caption{Token frequency per class}
+		\includegraphics[scale=0.5]{freq1.png}
+		\centering
+	\end{figure}
+	
+	\paragraph{Most common tokens per class}
+	
+	
+	
 	
 	
 
