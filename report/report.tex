@@ -293,6 +293,8 @@ Logistic Regression & DMC+DBOW & 91.53\% & 35.84\% \\ \hline
 % \usepackage{graphicx}
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[h]
 \caption{Deep Learning results}
 \label{my-label}
@@ -309,9 +311,9 @@ MLP & 1 & 64 & 10 & 32 & Yes & Yes & \begin{tabular}[c]{@{}l@{}}Custom ADAM\\ Lr
 MLP & 1 & 64 & 10 & 32 & Yes & Yes & \begin{tabular}[c]{@{}l@{}}Custom ADAM\\ Lr=0.01\end{tabular} & No & TF-IDF & 95.01\% & 4.54\% \\ \hline
 MLP & 2 & 128/64 & 40 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Doc2Vec\\ (DMC+DBOW)\end{tabular} & 92.55\% & 41.47\% \\ \hline
 MLP & 2 & 128/64 & 40 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Pre-trained Doc2Vec\\ (gloVe)\end{tabular} & 93.35\% & 65.64\% \\ \hline
-MLP + Embeddings & 2 & 256 & 5 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Pre-trained Doc2Vec\\ (gloVe)\end{tabular} & 95.25\% & 65.14\% \\ \hline
-MLP + Embeddings & 3 & 256/256 & 10 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Pre-trained Doc2Vec\\ (gloVe)\end{tabular} & 96.02\% & 69.95\% \\ \hline
-CNN + Embeddings & 8 & N/A & 10 & 512 & No & No & ADAM & Yes / 0.2 & \begin{tabular}[c]{@{}l@{}}Word2Vec\\ (DBOW)\end{tabular} & 96.77\% & 74.88\% \\ \hline
+\begin{tabular}[c]{@{}l@{}}MLP + Embeddings\\ (Not trainable)\end{tabular} & 2 & 256 & 5 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Pre-trained Doc2Vec\\ (gloVe)\end{tabular} & 95.25\% & 65.14\% \\ \hline
+\begin{tabular}[c]{@{}l@{}}MLP + Embeddings\\ (Not trainable)\end{tabular} & 3 & 256/256 & 10 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}Pre-trained Doc2Vec\\ (gloVe)\end{tabular} & 96.02\% & 69.95\% \\ \hline
+\begin{tabular}[c]{@{}l@{}}CNN + Embeddings\\ (Trainable)\end{tabular} & 8 & N/A & 10 & 512 & No & No & ADAM & Yes / 0.2 & \begin{tabular}[c]{@{}l@{}}Pre-trained Doc2Vec\\ (gloVe)\end{tabular} & 96.77\% & 74.88\% \\ \hline
 \end{tabular}%
 }
 \end{table}
