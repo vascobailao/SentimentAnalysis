@@ -20,14 +20,16 @@
 		
 	\section{Data Set}
 	
+		The data set provided (\url{https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/}) is composed by two different files, the train set (\texttt{train\_E6oV3lV.csv}) and test set (\texttt{test\_tweets\_anuFYb8.csv}). 
+	
 	\subsection{Train Set}
 	
-	The data set provided (\url{https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/}) is composed by two different files, the train set ("$train\_E6oV3lV.csv$") and test set ("$test\_tweets\_anuFYb8.csv$"). The first file is composed by 31621 observations, with 3 columns ("id", "label" and "tweet"), with an uneven label (or class) distribution, as can be seen in Figure 1:
+	The first file is composed by 31621 observations, with 3 columns ("id", "label" and "tweet"), with an uneven label (or class) distribution, as can be seen in \autoref{fig:class1}:
 	
-	\begin{figure}[h]
-		\label{Figure 1}
+	\begin{figure}[h!]
+		\label{fig:class1}
 		\caption{Class distribution}
-		\includegraphics[width=9cm]{classes.png}
+		\includegraphics[width=50mm]{classes.png}
 		\centering
 	\end{figure}
 	
@@ -43,10 +45,9 @@
 	
 	So the first hypothesis that I wanted to test was if one class of tweets has a statistically different pre-clean length that the other one. As we can see in Figure 2:
 	
-	\begin{figure}[h]
-		\label{Figure 1}
+	\begin{figure}[h!]
 		\caption{Pre-clean length}
-		\includegraphics[width=9cm]{precleanl.png}
+		\includegraphics[width=50mm]{precleanl.png}
 		\centering
 	\end{figure}
 	
@@ -56,10 +57,10 @@
 	
 	So following the same line of thought of the last subsection, I thought that exclamation marks could be a discriminative feature. The hypothesis was that hate-speech tweets had more exclamation marks than non-hate speech tweets. The boxplot for each class in terms of the number of number of exclamation points. 
 	
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\label{Figure 2}
 		\caption{Number of Exclamation Marks}
-		\includegraphics[width=9cm]{postcleanlength.png}
+		\includegraphics[width=50mm]{postcleanlength.png}
 		\centering
 	\end{figure}
 	
@@ -69,10 +70,10 @@
 	
 	Skipping some steps, lets now check the post-cleaning length. Again, there is no statistically  significant differences between one class and the other. This can be seen in Figure 4. 
 	
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\label{Figure 3}
 		\caption{Post-cleaning length}
-		\includegraphics[width=9cm]{post.png}
+		\includegraphics[width=50mm]{post.png}
 		\centering
 	\end{figure}
 
@@ -104,7 +105,7 @@
 	\begin{figure}[h]
 		\label{Figure 5}
 		\caption{WordCloud for non-hate speech class}
-		\includegraphics[width=9cm]{wordpos.png}
+		\includegraphics[width=50mm]{wordpos.png}
 		\centering
 	\end{figure}
 	
@@ -113,7 +114,7 @@
 	\begin{figure}[h]
 		\label{Figure 6}
 		\caption{WordCloud for hate speech class}
-		\includegraphics[width=9cm]{wordneg.png}
+		\includegraphics[width=50mm]{wordneg.png}
 		\centering
 	\end{figure}
 	
@@ -124,7 +125,7 @@
 	\begin{figure}[h]
 		\label{Figure 7}
 		\caption{Approximate Zipf Law}
-		\includegraphics[width=9cm]{zipf.png}
+		\includegraphics[width=50mm]{zipf.png}
 		\centering
 	\end{figure}
 	
@@ -136,7 +137,7 @@
 	\begin{figure}[h]
 		\label{Figure 8}
 		\caption{Log-scaled approximate Zipf Law}
-		\includegraphics[width=9cm]{logzipf.png}
+		\includegraphics[width=50mm]{logzipf.png}
 		\centering
 	\end{figure}
 	
@@ -152,7 +153,7 @@
 	\begin{figure}[h]
 		\label{Figure 9}
 		\caption{Token frequency per class}
-		\includegraphics[scale=0.5]{freq1.png}
+		\includegraphics[width=50mm]{freq1.png}
 		\centering
 	\end{figure}
 	
@@ -163,7 +164,7 @@
 	\begin{figure}[h]
 		\label{Figure 10}
 		\caption{Token frequency per class}
-		\includegraphics[scale=0.3]{posfreq.png}
+		\includegraphics[width=50mm]{posfreq.png}
 		\centering
 	\end{figure}
 	
@@ -171,7 +172,7 @@
 	\begin{figure}[h]
 		\label{Figure 11}
 		\caption{Token frequency per class}
-		\includegraphics[scale=0.3]{negfreq.png}
+		\includegraphics[width=50mm]{negfreq.png}
 		\centering
 	\end{figure}
 	
@@ -180,7 +181,7 @@
 	\begin{figure}[h]
 		\label{Figure 12}
 		\caption{Token frequency per class}
-		\includegraphics[scale=0.55]{neg_post_freq.png}
+		\includegraphics[width=50mm]{neg_post_freq.png}
 		\centering
 	\end{figure}
 
@@ -193,7 +194,7 @@ NOTE 2: The tokens that are more meaningful are the ones in the 1st and 4th quar
 \paragraph{Other Metrics}
 
 
-Using the metrics for ranking tokens from this \url{https://www.youtube.com/watch?v=H7X9CA2pWKo} PyData Conference, let’s explore what we can get out of frequency of each token. Intuitively, if a word appears more often in one class compared to another, this can be a good measure of how much the word is meaningful to characterise the class.
+Using the metrics for ranking tokens from this (\url{https://www.youtube.com/watch?v=H7X9CA2pWKo}) PyData Conference, let’s explore what we can get out of frequency of each token. Intuitively, if a word appears more often in one class compared to another, this can be a good measure of how much the word is meaningful to characterise the class.
 
 I call this the \texttt{pos\_rate}, that basically is a measure of how much a token appears in the positive class related to the positive and negative classes.
 
@@ -214,7 +215,7 @@ What we can try next is to get the CDF (Cumulative Distribution Function) (inspi
 	\begin{figure}[h]
 		\label{Figure 12}
 		\caption{Token frequency per class}
-		\includegraphics[scale=0.55]{norcdf.png}
+		\includegraphics[width=50mm]{norcdf.png}
 		\centering
 	\end{figure}
 
@@ -231,7 +232,7 @@ So finally, we can see that there is a relationship between the positive and neg
 	\begin{figure}[h]
 		\label{Figure 14}
 		\caption{Logistic Regression results}
-		\includegraphics[scale=0.55]{LR.png}
+		\includegraphics[width=50mm]{LR.png}
 		\centering
 	\end{figure}
 
@@ -318,4 +319,18 @@ MLP & 2 & 128/64 & 40 & 256 & No & No & ADAM & No & \begin{tabular}[c]{@{}l@{}}P
 }
 \end{table}
 	\section{Discussion and Future Work}
+	
+	
+	In this exercise I experimented different approaches to the problem, mainly in terms of how to extract features from raw text (in plain english transform words in numbers), using TF-IDF and severals variants of Word2Vec/Doc2Vec.
+	
+	The approach that produced better results was using TF-IDF with sublinear combinations, with 90000 features and N-Gram range of (1,2).
+	
+	Another approach that produce good results, ranked in second place in terms of F1-Score was using deep learning with convolutional neural networks proposed by Y. Kim(2014), “Convolutional Neural Networks for Sentence Classification” (available at \url{ https://arxiv.org/pdf/1408.5882.pdf}. This model combines different N-Gram ranges and uses the multi-channel concept ((eg. one channel for static input word vectors, another channel for word vectors input but set them to update during training).
+	 
+	Another aspect that I would like to refer is the use of the F1-Score. I understand that makes sense to use this metric given the class imbalance, but, in a business context, sensitivity would make much more sense in my opinion, because, for example, the CEO of Twitter, given this tool, should be aware how much he is risking in terms of detecting hate speech. The question that I would make "how much do you want to risk in terms of detecting hate speech? 30\%? 40\%?
+	
+	To be completely honest, this is my first serious experience with NLP and even if I don't make it to the next recruitment round, the experience itself was worthwhile. For that, I thank you for proposing this challenge. 
+	
+	
+	
 \end{document}
